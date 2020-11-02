@@ -1,0 +1,81 @@
+<!-- Client-side cookies
+This challenge may behave weirdly within Ed - it may be best to work from a local file & use Live Server to preview your solution!
+
+The code provided is a really basic rip-off of the gaming classic, "Cookie Clicker".
+
+Press the button & the number goes up.
+
+When you refresh the page, the number resets. That's bad. 
+
+Fill out the saveCountToCookie and readCountFromCookie functions so that they allow this page to continue its count - the count should never be zero once the button has been clicked at least once!
+
+
+Note: No other code in the sample needs to be edited to solve this challenge.
+
+Any edits you do outside of the two specified functions are entirely up to you, but are not required to solve the challenge at all.
+
+This means you do NOT need ExpressJS at all here -- you're using local browser JS to solve this challenge!
+
+
+This may need a bit of reading on w3schools and/or MDN docs. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bigfoot's Cookie Clicker</title>
+</head>
+<body>
+    <h1 id="countCookiesClicked">0</h1>
+    <button onclick="cookieClick()">Click me!</button>
+
+
+    <script>
+        var countElem = document.getElementById("countCookiesClicked");
+        var currentCount = readCountFromCookie();
+        countElem.innerHTML = currentCount;
+
+        function cookieClick(){
+            let currentCount = Number.parseInt(countElem.innerHTML);
+            currentCount++;
+            countElem.innerHTML = currentCount;
+            console.log("currentcount inside cookieclic func " + currentCount)
+            saveCountToCookie();
+        }
+
+        function saveCountToCookie(){
+            // save currentCount to cookie
+            // const cookie = document.cookie
+            
+            // document.cookie = "count" + "=" + currentCount
+            document.cookie = `count = ${Number.parseInt(countElem.innerHTML)}`
+            cookieValue = document.cookie
+            console.log("cookie inside save func " + cookieValue)
+            // gets currentcount and saves it to a variable
+
+            console.log("currentcount inside save func " + currentCount)
+        }
+
+        function readCountFromCookie(){
+            let currentValue = 0;
+
+            // get data from cookie
+
+            // assign value from cookie to currentValue
+
+            // add data and currentvalue together
+
+            return currentValue;
+
+            document.cookie = "username=Ali";
+            const cookieValue = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('username'))
+                .split('=')[1];
+        }
+
+    </script>
+</body>
+</html>
